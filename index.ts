@@ -69,7 +69,7 @@ class Client {
   }
 
   start () {
-    const events = new EventSource(this.source);
+    const events = new EventSource(this.source, {proxy: 'http://127.0.0.1:3128'} );
 
     // Reconnect immediately
     (events as any).reconnectInterval = 0 // This isn't a valid property of EventSource
